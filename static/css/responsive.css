@@ -1,0 +1,314 @@
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  #modalMusica .modal-content p {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  #modalMusica .modal-content p + span {
+    font-size: 15px;
+  }
+
+  #modalMusica .modal-content .boton {
+    margin-bottom: 15px;
+  }
+
+  .title {
+    font-size: 50px;
+    padding: 0 15px;
+  }
+
+  .subtitle {
+    font-size: 19px;
+    padding: 0 15px;
+  }
+
+  .divider {
+    margin-top: 40px;
+    height: 40px;
+  }
+
+  section.cuenta-regresiva .divider {
+    margin-top: 55px;
+  }
+
+  section.portada .container .row:first-child {
+    height: 670px;
+  }
+
+  section.portada .content-portada h1 {
+    font-size: 85px;
+    line-height: 40px;
+  }
+
+  /* section.cuenta-regresiva .box-aros {
+    width: 90%;
+  } */
+
+  section.portada .box-nombres-fecha-portada h1 span {
+    font-size: 35px;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    margin-bottom: 35px;
+    margin-top: 30px;
+    top: 0;
+  }
+
+  section.portada .content-portada span.fecha:before {
+    left: 0;
+    width: 30%;
+    top: 0.7em;
+  }
+
+  section.portada .content-portada span.fecha:after {
+    right: -1%;
+    width: 30%;
+    top: 0.7em;
+  }
+
+  section.portada .content-portada {
+    width: 85%;
+    padding-top: 50px;
+  }
+
+  section.portada .content-portada span.fecha {
+    font-size: 25px;
+    margin-bottom: 45px;
+  }
+
+  section.portada .box-nombres-fecha-portada .line {
+    width: 95%;
+    margin-top: 60px;
+  }
+
+  section.portada {
+    padding-bottom: 45%;
+  }
+
+  section.portada .box-frase-portada p {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  section.portada .box-frase-portada {
+    margin-top: 15px;
+  }
+
+  /* section.cuenta-regresiva .box-aros .box-circulo span.falta {
+    font-size: 35px;
+  } */
+
+  section.footer h4 {
+    font-size: 55px;
+    margin-bottom: 40px;
+  }
+
+  section.footer h4 span {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  section.footer .col-acciones-footer ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+  /* 
+  section.cuenta-regresiva {
+    padding: 12% 0;
+    padding-top: 30%;
+  }
+
+  section.cuenta-regresiva .box-cuenta-regresiva {
+    width: 90%;
+  }
+
+  section.cuenta-regresiva .reloj-col span.time {
+    font-size: 18px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo {
+    padding: 20px;
+    width: 290px;
+    height: 290px;
+  } */
+
+  section.ceremonia-fiesta .col-ceremonia h3,
+  section.ceremonia-fiesta .col-fiesta h3 {
+    padding: 8px 30px;
+  }
+
+  section.ceremonia-fiesta .col-ceremonia .anim-anillos,
+  section.ceremonia-fiesta .anim-fiesta {
+    width: 30%;
+  }
+
+  section.instagram {
+    padding-top: 0;
+    padding-bottom: 40%;
+  }
+
+  section.instagram .hashtag {
+    font-size: 45px;
+  }
+
+  section.footer {
+    padding-bottom: 20%;
+    padding-top: 15%;
+  }
+
+  section.regalos {
+    padding-top: 0;
+    padding-bottom: 25%;
+  }
+
+  section.fiesta {
+    padding: 20% 0;
+  }
+
+  section.ceremonia-fiesta {
+    padding-bottom: 10%;
+  }
+
+  section.galeria {
+    padding: 20% 0;
+  }
+
+  #modalMapa .modal-header .modal-title {
+    font-size: 30px;
+    padding-top: 10px;
+  }
+
+  section.regalos .regalos-flor-der {
+    bottom: 16%;
+    width: 26%;
+  }
+
+  section.ceremonia-fiesta {
+    background-image: none;
+    padding-top: 15%;
+  }
+
+  section.ceremonia-fiesta::before {
+    top: -15%;
+  }
+
+  /* section.cuenta-regresiva .box-aros .box-circulo img.divisor {
+    width: 60%;
+  } */
+
+  section.ceremonia-fiesta .info-col .info-box a.boton {
+    min-width: 85%;
+    padding: 18px 35px;
+  }
+
+  section.ceremonia-fiesta:after {
+    bottom: -2%;
+  }
+
+  section.fiesta:after {
+    bottom: -1px;
+  }
+
+  section.instagram:before {
+    top: -1px;
+  }
+
+  section.instagram:after {
+    bottom: -1px;
+  }
+
+  section.instagram .anim-instagram {
+    margin-top: 20px;
+  }
+
+  #modalMapa .close {
+    top: 15px;
+    right: 5px;
+  }
+
+  /* section.cuenta-regresiva .box-cuenta-regresiva .falta {
+    font-size: 65px;
+  }
+
+  section.cuenta-regresiva .reloj-col span.number {
+    font-size: 40px;
+  } */
+
+  .modal .modal-content {
+    padding: 12% 2%;
+  }
+
+  .modal-content .modal-header .modal-title {
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  section.fiesta .item-fiesta a.boton {
+    min-width: 100%;
+    padding: 18px 30px;
+  }
+
+  #controlador-musica {
+    top: initial;
+    bottom: 0;
+    right: 0;
+  }
+
+  .music-anim-icon {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  #googleMap {
+    height: 430px;
+  }
+
+  section.cuenta-regresiva .box-aros {
+    width: 360px;
+    height: 360px;
+    top: -75px;
+  }
+
+  section.cuenta-regresiva .adorno-1 {
+    position: absolute;
+    width: 230px;
+    top: -30px;
+    left: 0px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo span.falta {
+    font-size: 45px;
+    margin-top: 10px;
+  }
+
+  section.cuenta-regresiva .reloj-col span.number {
+    font-size: 35px;
+  }
+
+  section.cuenta-regresiva .reloj-col span.time {
+    font-size: 18px;
+  }
+
+  section.cuenta-regresiva .box-aros .box-circulo {
+    padding: 28px 20px;
+    height: 270px;
+    width: 270px;
+    max-width: 350px;
+  }
+
+  section.cuenta-regresiva {
+    height: 330px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  section.instagram .hashtag {
+    font-size: 35px;
+  }
+}
