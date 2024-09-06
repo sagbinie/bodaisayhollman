@@ -239,7 +239,7 @@ a {
   width: 80%;
   height: 130px;
   /* background-image: linear-gradient(to right, transparent, rgb(204,204,204), transparent); */
-  background-image: url('/static/images/divider.png');
+  background-image: url('../../static/images/divider.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -478,7 +478,7 @@ section.cuenta-regresiva {
 section.cuenta-regresiva .box-aros {
   width: 430px;
   height: 430px;
-  background: url('/static/images/img_circuloContador01.svg') center center
+  background: url('../../static/images/img_circuloContador01.svg') center center
     no-repeat;
   position: relative;
   z-index: 99;
