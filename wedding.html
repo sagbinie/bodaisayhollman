@@ -798,17 +798,6 @@
                     placeholder="Ingrese su número de celular"
                   />
                 </div>
-
-                <input
-                  id="eventoAsistencia"
-                  type="hidden"
-                  name="evento"
-                  value=""
-                />
-                <input type="hidden" name="invitacion" value="" />
-                <input type="hidden" name="token" value="" />
-                <input type="hidden" name="lang" value="es" />
-                <input type="hidden" name="country" value="co" />
               </form>
             </div>
 
@@ -1658,16 +1647,16 @@
         });
       });
 
-      // Validacion de form.
+      // Validación de formulario
       function isOkAsistencia() {
         // Remuevo mensajes de error anteriores
         $('#error-form').remove();
 
-        // Variables necesarias para la validacion
+        // Variables necesarias para la validación
         var flag = true;
         var err = '';
 
-        // Variables del form para validar.
+        // Variables del formulario para validar
         var asistenteName = $.trim($('#nombreAsistente').val());
         var asistenteComentarios = $.trim($('#comentariosAsistente').val());
 
@@ -1698,7 +1687,7 @@
           );
         }
 
-        // Retorno el estado de la validacion
+        // Retorno el estado de la validación
         return flag;
       }
 
@@ -1717,66 +1706,77 @@
 
           // Obtengo los datos del formulario
           var datos = new FormData(formulario);
+          var keyValuePairs = [];
 
-          // Visualizar como viajan los datos
-          // for (var pair of datos.entries()) {
-          //   console.log(pair[0] + ", " + pair[1]);
-          // }
+          // Recorro los datos y los guardo en un array
+          for (var pair of datos.entries()) {
+            keyValuePairs.push(pair[0] + '=' + pair[1]);
+          }
+
+          var formDataString = keyValuePairs.join('&');
 
           // Envio con fetch los datos mediante POST
-          fetch(_pathApp + 'producto/fetchs/confirmar-asistencia.php', {
-            method: 'POST',
-            body: datos,
-          })
-            // Promesas fetch
-            .then((res) => res.json())
-            .then((data) => {
-              // Si recibo error
-              if (data.error === true) {
-                $('#sendAsistencia').text(lang_confirmarAsistencia);
-                $('#sendAsistencia').prop('disabled', false);
-
-                // Imprimo el error
-                $('#formAsistencia').after(
-                  '<span id="error-form">' + data.desc + '</span>'
-                );
+          fetch(
+            'https://script.google.com/macros/s/AKfycby8TsbxLnygUCLp4LJnFLnY3j_IYPpWNq6Vb2kuR2xGcu28d2V4t_t2DHXQwQ-vrnlm/exec',
+            {
+              method: 'POST',
+              body: formDataString,
+              headers: {
+                'Content-Type':
+                  'application/x-www-form-urlencoded;charset=UTF-8',
+              },
+            }
+          )
+            .then(function (response) {
+              // Check if the request was successful
+              if (response) {
+                return response; // Assuming your script returns JSON response
+              } else {
+                throw new Error('Failed to submit the form.');
               }
-
+            })
+            .then((data) => {
               // Si no hay error
-              if (data.error === false) {
-                $('#sendAsistencia').text(lang_confirmarAsistencia);
-                $('#sendAsistencia').prop('disabled', false);
+              $('#sendAsistencia').text(lang_confirmarAsistencia);
+              $('#sendAsistencia').prop('disabled', false);
 
-                // Oculto elementos del form y reseteo
-                $('#formAsistencia')[0].reset();
+              // Oculto elementos del form y reseteo
+              $('#formAsistencia')[0].reset();
+              $(
+                '#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5'
+              ).hide();
+
+              // Acomodo el css para centrar mensaje
+              $('#modalAsistencia .modal-body').addClass('fix-height');
+
+              // Muestro mensaje de exito
+              $('#modalAsistencia .msj-content')
+                .html(
+                  '<h5>' +
+                    lang_asistenciaMsjExito_1 +
+                    '</h5><p>' +
+                    lang_asistenciaMsjExito_2 +
+                    '</p>'
+                )
+                .show();
+
+              // Cierro modal y vuelvo a activar form
+              setTimeout(function () {
+                $('#modalAsistencia').modal('hide');
                 $(
                   '#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5'
-                ).hide();
-
-                // Acomodo el css para centrar mensaje
-                $('#modalAsistencia .modal-body').addClass('fix-height');
-
-                // Muestro mensaje de exito
-                $('#modalAsistencia .msj-content')
-                  .html(
-                    '<h5>' +
-                      lang_asistenciaMsjExito_1 +
-                      '</h5><p>' +
-                      lang_asistenciaMsjExito_2 +
-                      '</p>'
-                  )
-                  .show();
-
-                // Cierro modal y vuelvo a activar form
-                setTimeout(function () {
-                  $('#modalAsistencia').modal('hide');
-                  $(
-                    '#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5'
-                  ).show();
-                  $('#modalAsistencia .msj-content').html('').hide();
-                  $('#modalAsistencia .modal-body').removeClass('fix-height');
-                }, 4000);
-              }
+                ).show();
+                $('#modalAsistencia .msj-content').html('').hide();
+                $('#modalAsistencia .modal-body').removeClass('fix-height');
+              }, 4000);
+            })
+            .catch((error) => {
+              $('#sendAsistencia').text(lang_confirmarAsistencia);
+              $('#sendAsistencia').prop('disabled', false);
+              $('#formAsistencia').after(
+                '<span id="error-form">Hubo un error al enviar los datos. Por favor, inténtalo de nuevo.</span>'
+              );
+              console.error('Error:', error);
             });
         }
       });
