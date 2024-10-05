@@ -869,11 +869,6 @@
                     placeholder="Si lo desea ingrese el link de youtube, spotify, etc."
                   />
                 </div>
-
-                <input type="hidden" name="invitacion" value="" />
-                <input type="hidden" name="token" value="" />
-                <input type="hidden" name="lang" value="es" />
-                <input type="hidden" name="country" value="co" />
               </form>
             </div>
 
@@ -1714,7 +1709,6 @@
           }
 
           var formDataString = keyValuePairs.join('&');
-
           // Envio con fetch los datos mediante POST
           fetch(
             'https://script.google.com/macros/s/AKfycby8TsbxLnygUCLp4LJnFLnY3j_IYPpWNq6Vb2kuR2xGcu28d2V4t_t2DHXQwQ-vrnlm/exec',
@@ -1736,7 +1730,6 @@
               }
             })
             .then((data) => {
-              // Si no hay error
               $('#sendAsistencia').text(lang_confirmarAsistencia);
               $('#sendAsistencia').prop('disabled', false);
 
@@ -1901,8 +1894,8 @@
         e.preventDefault();
 
         if (isOkSugerirCancion()) {
-          //Form bien validado
-          // Load and disabled buttom.
+          // Formulario bien validado
+          // Load and disabled button.
           $('#sendSugerenciaCancion').text(lang_enviandoSugerencia + '...');
           $('#sendSugerenciaCancion').prop('disabled', true);
 
@@ -1911,69 +1904,68 @@
 
           // Obtengo los datos del formulario
           var datos = new FormData(formulario);
+          var keyValuePairs = [];
 
-          // Visualizar como viajan los datos
+          // Recorro los datos y los guardo en un array
           for (var pair of datos.entries()) {
-            console.log(pair[0] + ', ' + pair[1]);
+            keyValuePairs.push(pair[0] + '=' + pair[1]);
           }
 
+          var formDataString = keyValuePairs.join('&');
           // Envio con fetch los datos mediante POST
-          fetch(_pathApp + 'producto/fetchs/sugerir-cancion.php', {
-            method: 'POST',
-            body: datos,
-          })
-            // Promesas fetch
+          fetch(
+            'https://script.google.com/macros/s/AKfycby8TsbxLnygUCLp4LJnFLnY3j_IYPpWNq6Vb2kuR2xGcu28d2V4t_t2DHXQwQ-vrnlm/exec',
+            {
+              method: 'POST',
+              body: formDataString,
+              headers: {
+                'Content-Type':
+                  'application/x-www-form-urlencoded;charset=UTF-8',
+              },
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
-              // Si recibo error
-              if (data.error === true) {
-                $('#sendSugerenciaCancion').text(lang_sugerirCancion);
-                $('#sendSugerenciaCancion').prop('disabled', false);
+              $('#sendSugerenciaCancion').text(lang_sugerirCancion);
+              $('#sendSugerenciaCancion').prop('disabled', false);
 
-                // Imprimo el error
-                $('#formSugerirCancion').after(
-                  '<span id="error-form">' + data.desc + '</span>'
-                );
-              }
+              // Oculto elementos del form y reseteo
+              $('#formSugerirCancion')[0].reset();
+              $(
+                '#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5'
+              ).hide();
 
-              // Si no hay error
-              if (data.error === false) {
-                $('#sendSugerenciaCancion').text(lang_sugerirCancion);
-                $('#sendSugerenciaCancion').prop('disabled', false);
+              // Acomodo el css para centrar mensaje
+              $('#modalSugerirCancion .modal-body').addClass('fix-height');
 
-                // Oculto elementos del form y reseteo
-                $('#formSugerirCancion')[0].reset();
+              // Muestro mensaje de exito
+              $('#modalSugerirCancion .msj-content')
+                .html(
+                  '<h5>' +
+                    lang_sugerirCancionMsjExito_1 +
+                    '</h5><p>' +
+                    lang_sugerirCancionMsjExito_2 +
+                    '</p>'
+                )
+                .show();
+
+              // Cierro modal y vuelvo a activar form
+              setTimeout(function () {
+                $('#modalSugerirCancion').modal('hide');
                 $(
                   '#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5'
-                ).hide();
-
-                // Acomodo el css para centrar mensaje
-                $('#modalSugerirCancion .modal-body').addClass('fix-height');
-
-                // Muestro mensaje de exito
-
-                $('#modalSugerirCancion .msj-content')
-                  .html(
-                    '<h5>' +
-                      lang_sugerirCancionMsjExito_1 +
-                      '</h5><p>' +
-                      lang_sugerirCancionMsjExito_2 +
-                      '</p>'
-                  )
-                  .show();
-
-                // Cierro modal y vuelvo a activar form
-                setTimeout(function () {
-                  $('#modalSugerirCancion').modal('hide');
-                  $(
-                    '#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5'
-                  ).show();
-                  $('#modalSugerirCancion .msj-content').html('').hide();
-                  $('#modalSugerirCancion .modal-body').removeClass(
-                    'fix-height'
-                  );
-                }, 4000);
-              }
+                ).show();
+                $('#modalSugerirCancion .msj-content').html('').hide();
+                $('#modalSugerirCancion .modal-body').removeClass('fix-height');
+              }, 4000);
+            })
+            .catch((error) => {
+              $('#sendSugerenciaCancion').text(lang_sugerirCancion);
+              $('#sendSugerenciaCancion').prop('disabled', false);
+              $('#formSugerirCancion').after(
+                '<span id="error-form">Hubo un error al enviar los datos. Por favor, inténtalo de nuevo.</span>'
+              );
+              console.error('Error:', error);
             });
         }
       });
