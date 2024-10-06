@@ -413,62 +413,6 @@ ul.lang-inv li a:hover {
 /* ---------- */
 
 /* Cuenta regresiva */
-/* section.cuenta-regresiva {
-  position: relative;
-  padding: 20% 0 4%;
-  margin-top: -16%;
-}
-
-section.cuenta-regresiva .box-cuenta-regresiva {
-  width: 35%;
-}
-
-section.cuenta-regresiva .box-cuenta-regresiva .falta {
-  width: 100%;
-  text-align: center;
-  display: inline-block;
-  color: var(--color-1);
-  font-family: var(--fuente-1);
-  font-size: 65px;
-}
-
-section.cuenta-regresiva .reloj-col {
-  width: 25%;
-  border-right: 1px solid var(--color-3);
-  padding: 0 8px;
-  float: left;
-}
-
-section.cuenta-regresiva .reloj-col.no-border {
-  border: none;
-}
-
-section.cuenta-regresiva .reloj-col span.number {
-  display: inline-block;
-  width: 100%;
-  color: var(--color-2);
-  font-family: var(--fuente-3);
-  font-size: 50px;
-  font-weight: var(--grosor-fuente-light);
-  text-align: center;
-}
-
-section.cuenta-regresiva .reloj-col span.time {
-  display: inline-block;
-  width: 100%;
-  color: var(--color-3);
-  font-family: var(--fuente-2);
-  font-size: 20px;
-  font-weight: var(--grosor-fuente-medium);
-  text-transform: uppercase;
-  text-align: center;
-}
-
-section.cuenta-regresiva p.fin-cuenta {
-  font-size: 30px;
-  color: var(--color-1);
-  text-align: center;
-}*/
 
 section.cuenta-regresiva {
   position: relative;

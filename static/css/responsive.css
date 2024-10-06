@@ -41,10 +41,6 @@
     line-height: 40px;
   }
 
-  /* section.cuenta-regresiva .box-aros {
-    width: 90%;
-  } */
-
   section.portada .box-nombres-fecha-portada h1 span {
     font-size: 35px;
     width: 45px;
@@ -95,10 +91,6 @@
     margin-top: 15px;
   }
 
-  /* section.cuenta-regresiva .box-aros .box-circulo span.falta {
-    font-size: 35px;
-  } */
-
   section.footer h4 {
     font-size: 55px;
     margin-bottom: 40px;
@@ -117,25 +109,6 @@
     text-align: center;
     margin-top: 30px;
   }
-  /* 
-  section.cuenta-regresiva {
-    padding: 12% 0;
-    padding-top: 30%;
-  }
-
-  section.cuenta-regresiva .box-cuenta-regresiva {
-    width: 90%;
-  }
-
-  section.cuenta-regresiva .reloj-col span.time {
-    font-size: 18px;
-  }
-
-  section.cuenta-regresiva .box-aros .box-circulo {
-    padding: 20px;
-    width: 290px;
-    height: 290px;
-  } */
 
   section.ceremonia-fiesta .col-ceremonia h3,
   section.ceremonia-fiesta .col-fiesta h3 {
@@ -190,16 +163,12 @@
 
   section.ceremonia-fiesta {
     background-image: none;
-    padding-top: 15%;
+    padding-top: 40%;
   }
 
   section.ceremonia-fiesta::before {
     top: -15%;
   }
-
-  /* section.cuenta-regresiva .box-aros .box-circulo img.divisor {
-    width: 60%;
-  } */
 
   section.ceremonia-fiesta .info-col .info-box a.boton {
     min-width: 85%;
@@ -230,14 +199,6 @@
     top: 15px;
     right: 5px;
   }
-
-  /* section.cuenta-regresiva .box-cuenta-regresiva .falta {
-    font-size: 65px;
-  }
-
-  section.cuenta-regresiva .reloj-col span.number {
-    font-size: 40px;
-  } */
 
   .modal .modal-content {
     padding: 12% 2%;
@@ -272,7 +233,6 @@
   section.cuenta-regresiva .box-aros {
     width: 360px;
     height: 360px;
-    top: -75px;
   }
 
   section.cuenta-regresiva .adorno-1 {
